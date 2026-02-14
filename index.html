@@ -14,52 +14,177 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid justify-content-center" id="header">
+    <nav class="navbar headerStyle">
+        <div class="container-fluid justify-content-center"  id="header">
 
-                <h2 class="navbar-brand mb-0 h1 title text-center " id="navMessage">Happy Valentine's Day</h2>
-                <h2 class="navbar-brand mb-0 h1 title text-center opacity-0 position-absolute" id="navTitle">Open When</h2>
+                <h1 class="navbar-brand mb-0 h1 title text-center" id="navMessage">Happy Valentine's Day Rio</h1>
+                <h1 class="navbar-brand mb-0 h1 title text-center opacity-0 position-absolute" id="navTitle">Let´s play a game: Open When...</h1>
 
         </div>
     </nav>
 
+    <div class="modal fade" id="introModal" tabindex="-1" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered"> <div class="modal-content">
+            <div class="modal-header headerStyle d-flex justify-content-center">
+                <h5 class="modal-title text text-center" style="color:white;">Will you be my Valentine?</h5>
+            </div>
+            <div class="modal-body d-flex justify-content-around align-items-center">
+
+                <button class="btn d-flex flex-column align-items-center" data-bs-dismiss="modal" id="yesButton">
+                    <img src="images/heart.png" class="img-fluid mb-2" alt="Heart" style="width: 5rem" id="yesIcon">
+                    <h2 class="text">YES</h2>
+                </button>
+
+                <button class="btn d-flex flex-column align-items-center" id="noButton">
+                    <div id="noIconContainer" style="height: 5rem;" class="d-flex align-items-center">
+                        <i class="bi bi-heartbreak red" style="font-size: 3.5rem;" id="noIcon"></i>
+                    </div>
+                    <h2 class="text">NO</h2>
+                </button>
+
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="notes-wrapper">
+        <div class="sticky-note note-pink" onclick="toggleNote(this)">
+            <div class="note-content">
+                <p class="front-text">A little reminder...! </p>
+                <p class="back-text">Boo, our first Valentine yayayayaya️. One of many, i am sure!!</p>
+            </div>
+        </div>
+
+        <div class="sticky-note note-blue" style="bottom: 10%; left: 10%;" onclick="toggleNote(this)">
+            <div class="note-content">
+                <p class="front-text">Open me!</p>
+                <p class="back-text">Happy Valentine's Day My Love! 💌 Thank you for being my best friend
+                    and flirting with me, and loving me. I am so thankful for you.</p>
+            </div>
+        </div>
 
 
 
-    <div class="container my-5">
-        <div class="row g-4 justify-content-center" id="letterContainer">
+    </div>
 
-            <div class="col text-center boxLetter px-3">
+
+
+    <div class="container my-5 px-5">
+        <div class="row g-4 justify-content-center" >
+
+            <div class="col-12 text-center boxLetter px-2">
                 <button type="button"
                         class="btn p-0 border-0 bg-transparent letterButton"
                         data-bs-toggle="modal"
                         data-bs-target="#videoModal"
+                        data-title="Hi Baby, I am happy you chose yes."
+                        data-video="https://www.youtube.com/embed/cwTf0BDjMJ4?si=fn7TEEXheZR77qkJ">
+                    <img src="images/intro.png" alt="envelope" class="img-fluid" style="max-width: 250px;">
+                </button>
+            </div>
+
+            <div class="col text-center boxLetter px-2">
+                <button type="button"
+                        class="btn p-0 border-0 bg-transparent letterButton"
+                        data-bs-toggle="modal"
+                        data-bs-target="#videoModal"
+                        data-title="I MISS YOUUUUU❤️ All I know is that I will not let you GO next time I SEE YOU"
                         data-video="https://www.youtube.com/embed/yhIcsv1QZAs?si=rJf6e3r4x-fKpaO9">
                     <img src="images/envelope.png" alt="envelope" class="img-fluid" style="max-width: 250px;">
                 </button>
             </div>
 
 
-            <div class="col text-center boxLetter px-3">
+            <div class="col text-center boxLetter px-2">
                 <button type="button"
                         class="btn p-0 border-0 bg-transparent letterButton"
                         data-bs-toggle="modal"
                         data-bs-target="#videoModal"
+                        data-title="My love, Remember I am a little silly sometimes. You just gotta lemme be, and I
+                        will always come back"
                         data-video="https://www.youtube.com/embed/4FtzYw-L7yA?si=gjucA0J__WmDXf08">
                     <img src="images/envelope2.png" alt="envelope" class="img-fluid" style="max-width: 250px;">
                 </button>
             </div>
 
 
-            <div class="col text-center boxLetter px-3">
+            <div class="col text-center boxLetter px-2">
                 <button type="button"
                         class="btn p-0 border-0 bg-transparent letterButton"
                         data-bs-toggle="modal"
                         data-bs-target="#videoModal"
-                        data-video="https://www.youtube.com/embed/4FtzYw-L7yA?si=gjucA0J__WmDXf08">
-                    <img src="images/envelope.png" alt="envelope" class="img-fluid" style="max-width: 250px;">
+                        data-title="My busy boo...Well you love doing it. Be proud and restt. You are going to need it tmw"
+                        data-video="https://www.youtube.com/embed/obBVKIVdX2g?si=XKQKOk2v6ztr_l-h">
+                    <img src="images/envelope3.png" alt="envelope" class="img-fluid" style="max-width: 250px;">
                 </button>
             </div>
+
+            <div class="col text-center boxLetter px-2">
+                <button type="button"
+                        class="btn p-0 border-0 bg-transparent letterButton"
+                        data-bs-toggle="modal"
+                        data-bs-target="#videoModal"
+                        data-title="LOCK IN LOCK IN LOCK IN (we need 💶💶)"
+                        data-video="https://www.youtube.com/embed/eKs_v7KLBx0?si=0edWIxcDD4WY64__">
+                    <img src="images/envelope4.png" alt="envelope" class="img-fluid" style="max-width: 250px;">
+                </button>
+            </div>
+
+            <div class="col text-center boxLetter px-2">
+                <button type="button"
+                        class="btn p-0 border-0 bg-transparent letterButton"
+                        data-bs-toggle="modal"
+                        data-bs-target="#videoModal"
+                        data-title="Baby I tried, hopefully you will laugh at my attempt..."
+                        data-video="https://www.youtube.com/embed/j9PEFquJ7aw?si=yv--umzXQMbB1aYu">
+                    <img src="images/envelope5.png" alt="envelope" class="img-fluid" style="max-width: 250px;">
+                </button>
+            </div>
+
+            <div class="col text-center boxLetter px-2">
+                <button type="button"
+                        class="btn p-0 border-0 bg-transparent letterButton"
+                        data-bs-toggle="modal"
+                        data-bs-target="#videoModal"
+                        data-title="I admire you for everything you are and everything you have done. You make me
+                        wanna be better"
+                        data-video="https://www.youtube.com/embed/0BnVNdtnvGI?si=X2s4cYEtIXi2JK9H">
+                    <img src="images/envelope6.png" alt="envelope" class="img-fluid" style="max-width: 250px;">
+                </button>
+            </div>
+            <div class="col text-center boxLetter px-2">
+                <button type="button"
+                        class="btn p-0 border-0 bg-transparent letterButton"
+                        data-bs-toggle="modal"
+                        data-bs-target="#videoModal"
+                        data-title="I am sending you a huge hug right now. I dont doubt us, and I love you"
+                        data-video="https://www.youtube.com/embed/96gVaXXSZik?si=ZSffdr4HSDKxhQBf">
+                    <img src="images/envelope7.png" alt="envelope" class="img-fluid" style="max-width: 250px;">
+                </button>
+            </div>
+
+            <div class="col text-center boxLetter px-2">
+                <button type="button"
+                        class="btn p-0 border-0 bg-transparent letterButton"
+                        data-bs-toggle="modal"
+                        data-bs-target="#videoModal"
+                        data-title="Ha you thought. Better luck next time! (this is embarrasing)"
+                        data-video="https://www.youtube.com/embed/RuOHfGAwvR0?si=SuWybYA-xu0-67lK">
+                    <img src="images/envelope8.png" alt="envelope" class="img-fluid" style="max-width: 250px;">
+                </button>
+            </div>
+
+
+            <div class="col text-center boxLetter px-2">
+                <button type="button"
+                        class="btn p-0 border-0 bg-transparent letterButton"
+                        data-bs-toggle="modal"
+                        data-bs-target="#videoModal"
+                        data-title="Little Rio is very proud of you my love (bc little emilia is)"
+                        data-video="https://www.youtube.com/embed/RaLAIdagFBg?si=W8NJQMWSPW-vZKd8">
+                    <img src="images/envelope9.png" alt="envelope" class="img-fluid" style="max-width: 250px;">
+                </button>
+            </div>
+
 
         </div>
     </div>
@@ -68,15 +193,18 @@
 
 
 
+
+
     <div class="container my-5">
-        <div class="row g-4 justify-content-center" id="letterContainer">
+        <div class="row g-4 justify-content-center" id="Container">
 
             <div class="col text-center boxLetter px-3">
                 <button type="button"
                         class="btn p-0 border-0 bg-transparent letterButton"
                         data-bs-toggle="modal"
                         data-bs-target="#videoModal"
-                        data-video="https://www.youtube.com/embed/yhIcsv1QZAs?si=rJf6e3r4x-fKpaO9">
+                        data-title="Blooper 1: Enjoy booo"
+                        data-video="https://www.youtube.com/embed/lQSilsWDIv4?si=pq5RRBsU4sqNTMGN">
                     <img src="images/gift.png" alt="envelope" class="img-fluid" style="max-width: 250px;">
                 </button>
             </div>
@@ -87,21 +215,14 @@
                         class="btn p-0 border-0 bg-transparent letterButton"
                         data-bs-toggle="modal"
                         data-bs-target="#videoModal"
-                        data-video="https://www.youtube.com/embed/4FtzYw-L7yA?si=gjucA0J__WmDXf08">
+                        data-title="Blooper 2: Just wait until you see the show ones"
+                        data-video="https://www.youtube.com/embed/NAIbkfaVDJo?si=-YnFGFYMOMxZm7z6">
                     <img src="images/gift.png" alt="envelope" class="img-fluid" style="max-width: 250px;">
                 </button>
             </div>
 
 
-            <div class="col text-center boxLetter px-3">
-                <button type="button"
-                        class="btn p-0 border-0 bg-transparent letterButton"
-                        data-bs-toggle="modal"
-                        data-bs-target="#videoModal"
-                        data-video="https://www.youtube.com/embed/4FtzYw-L7yA?si=gjucA0J__WmDXf08">
-                    <img src="images/gift.png" alt="envelope" class="img-fluid" style="max-width: 250px;">
-                </button>
-            </div>
+
 
         </div>
     </div>
@@ -112,8 +233,10 @@
     <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="background-color: var(--green); border: 3px solid var(--accent-rose);">
-
                 <div class="modal-header border-0">
+                    <h3 class="modal-title text w-100 text-center" id="modalDynamicTitle" style="color: beige;font-size: 1.5rem;">
+                        For You ❤️
+                    </h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 

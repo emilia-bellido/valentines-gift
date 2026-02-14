@@ -6,17 +6,29 @@
     --green: #828E74;
 }
 
+.red{
+    color: var(--text-color);
+}
 .indie-flower-regular {
     font-family: "Indie Flower", cursive;
     font-weight: 400;
     font-style: normal;
+}
 
+.text{
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .navbar-brand.title{
     font-family: "Indie Flower", cursive;
     color: beige;
     font-weight: 600;
+    font-size: clamp(1rem, 6vw, 3rem) !important;
+    white-space: normal; /* Allows text to wrap on small screens */
+    word-wrap: break-word;
+    width: 100%;
 }
 
 #navMessage{
@@ -38,13 +50,26 @@
 
 
 
-.navbar{
+.headerStyle{
     background-color: var(--accent-rose)!important;
+    padding: 2rem 1rem; /* Adds vertical space for the big font */
+    min-height: 100px;
+    display: flex;
+    align-items: center;
 }
 
 
 body{
     background-color: var(--soft-pink);
+    background-image:
+            radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%),
+            linear-gradient(180deg, var(--soft-pink) 0%, #D4A3A3 100%);
+    background-attachment: fixed;
+    position: relative;
+    z-index: 0;
+
+    overflow-x: hidden; /* This prevents the side-scrolling 'dead space' */
+    width: 100%;
 }
 
 
@@ -57,9 +82,11 @@ body{
 }
 
 
-.letterButton:hover{
-    transform: translateY(-1rem); /* 2rem is quite a big jump, 1rem is usually smoother */
-    box-shadow: 0px 20px 30px var(--text-color);
+.letterButton:hover {
+    transform: translateY(-1rem);
+    /* Deep red glow that feels high-energy */
+    filter: drop-shadow(0px 8px 12px rgba(139, 0, 0, 0.5))
+    drop-shadow(0px 0px 20px rgba(255, 50, 50, 0.3));
 }
 
 #videoContainer video {
@@ -71,4 +98,194 @@ body{
 }
 
 
+
+#introModal{
+    transition: .5s ease-in;
+}
+
+#introModal .modal-content {
+    background-color: var(--bg-color); /* Your beige/parchment color */
+    border: 5px solid var(--accent-rose);
+    border-radius: 25px; /* Makes it look less like a window, more like a card */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Keeps the header corners tidy */
+}
+
+#introModal .modal-header {
+    border-bottom: 2px dashed var(--accent-rose); /* Cute dashed line */
+    padding: 1.5rem;
+}
+
+#yesButton, #noButton {
+    background: var(--bg-color);
+    border-radius: 15px;
+    padding: 15px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+#yesButton:hover {
+    border-color: var(--accent-rose);
+    background-color: #FFF0F0; /* Very light pink blush */
+    box-shadow: 0 0 15px rgba(171, 107, 107, 0.4);
+}
+
+#yesButton:hover h2 {
+    color: var(--accent-rose);
+    /* This makes the text look like it's glowing red/pink */
+    text-shadow: 0px 0px 10px rgba(171, 107, 107, 0.6),
+    2px 2px 0px rgba(255, 255, 255, 0.8);
+}
+
+
+#noButton:hover #noIcon{
+    animation: noIcon 2s ease-in-out forwards;
+}
+
+#noButton:hover h2{
+    transform: rotate(181deg);
+    transition: all .5s ease-in-out;
+}
+
+#yesButton:hover #yesIcon{
+    animation: yesImage 2s infinite;
+}
+
+/*KEYGRAMES ANYMATION*/
+@keyframes yesImage {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes noIcon {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(0, 0) scale(0); }
+}
+
+
+
+#introModal .modal-body {
+        background-image: radial-gradient(var(--soft-pink) 0.5px, transparent 0.5px);
+        background-size: 20px 20px; /* Subtle dots like a journal */
+        padding: 2.5rem !important;
+    }
+
+/* Remove extra side space on small screens */
+@media (max-width: 576px) {
+    .container-fluid {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .navbar {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Ensure the big titles don't overflow the screen width */
+    .navbar-brand.title {
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-right: 0;
+    }
+}
+
+
+/* Base Style (Desktop) */
+.sticky-note {
+    position: fixed; /* Floats on desktop */
+    width: 140px;
+    height: 140px;
+    padding: 15px;
+    font-family: "Indie Flower", cursive;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom-right-radius: 40px 10px;
+}
+
+/* Mobile Fix (iPhone / Screens smaller than 768px) */
+@media (max-width: 768px) {
+    .sticky-note {
+        position: relative !important; /* Moves them into the normal page flow */
+        float: left; /* Allows them to sit side-by-side if they fit */
+        margin: 10px auto;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        top: auto !important;
+        transform: rotate(0deg) !important; /* Straighter for easier reading on small screens */
+        width: 45%; /* Two notes per row on mobile */
+        height: 120px;
+    }
+
+    /* Container for notes on mobile so they don't overlap letters */
+    .notes-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 20px;
+        width: 100%;
+    }
+}
+
+/* Colors */
+.note-pink { background: #ffc2d1; transform: rotate(-3deg); bottom: 50px; right: 30px; }
+.note-yellow { background: #fffb8f; transform: rotate(4deg); }
+.note-blue { background: #a2d2ff; transform: rotate(-5deg); }
+
+.sticky-note:hover {
+    transform: scale(1.1) rotate(0deg);
+}
+
+.note-content .back-text {
+    display: none; /* Hide message initially */
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* When the note is "open" */
+.sticky-note.open {
+    width: 200px;
+    height: 200px;
+    z-index: 1001;
+    transform: rotate(0deg) scale(1.2);
+    background: #ffffff; /* Turns white when 'read' like paper */
+}
+
+.sticky-note.open .front-text { display: none; }
+.sticky-note.open .back-text { display: block; }
+
+#introModal .modal-title {
+    font-family: "Indie Flower", cursive !important;
+    font-weight: 600;
+    font-size: 2.5rem; /* You can adjust this size to make it pop */
+
+}
+
+.boxLetter:nth-child(even) .letterButton {
+    transform: rotate(2deg);
+}
+.boxLetter:nth-child(odd) .letterButton {
+    transform: rotate(-2deg);
+}
+
+/* Maintain the hover effect but combine it with the rotation */
+.letterButton:hover {
+    transform: translateY(-1rem) scale(1.05) rotate(0deg) !important;
+}
 

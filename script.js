@@ -12,6 +12,15 @@ videoModal.addEventListener('show.bs.modal', function (event) {
 
     const button = event.relatedTarget;
     const videoSrc = button.getAttribute('data-video'); //gets what video
+    const customTitle = button.getAttribute('data-title');
+
+    const modalTitleElement = document.getElementById('modalDynamicTitle');
+    if (customTitle) {
+        modalTitleElement.innerText = customTitle;
+    } else {
+        modalTitleElement.innerText = "For You ❤️"; // Fallback
+    }
+
 
     // We use 'ratio ratio-16x9' to lock the horizontal shape
     videoContainer.innerHTML = `
@@ -38,77 +47,24 @@ videoModal.addEventListener('hide.bs.modal', function () {
 
 
 
-/*88
-const NUMBER_OF_HEARTS = 75;
-const MAX_HEARTS_SIZE = 25;
-const MAX_HEARTS_SPEED = 2;
-const hearts =[];
 
-const canvas = document.createElement('canvas');
-canvas.style.position = 'absolute';
-canvas.style.top = '0px';
-canvas.style.pointerEvents = 'none';
-canvas.width = canvas.innerWidth;
-canvas.height = canvas.innerHeight;
+const introModal = document.getElementById('introModal');
 
-document.body.appendChild(canvas);
-const ctx = canvas.getContext('2d');
+document.addEventListener('DOMContentLoaded', function () {
+    // 1. Target your modal by its ID
+    const myModalElement = document.getElementById('introModal');
 
-const heartImage = new Image();
-heartImage.src = 'images/heart.png';
+    // 2. Initialize the Bootstrap modal object
+    const modal = new bootstrap.Modal(myModalElement);
 
-const resizeCanvas = () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    // 3. Show the modal!
+    setTimeout(function () {
+        modal.show();
+
+    }, 500);
+})
+
+
+function toggleNote(element) {
+    element.classList.toggle('open');
 }
-
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-
-const createHeart = () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    size: Math.random() * MAX_HEARTS_SIZE + 10,
-    speed: Math.random() * MAX_HEARTS_SPEED + 3,
-    drift: Math.random() * 1 - 0.5, // Subtle side-to-side movement
-    opacity: Math.random() * 0.5 + 0.5 // Some hearts are slightly faded
-});
-
-// Initialize hearts
-for (let i = 0; i < NUMBER_OF_HEARTS; i++) {
-    hearts.push(createHeart());
-    // Randomize initial Y so they don't all fall in a single wave at the start
-    hearts[i].y = Math.random() * canvas.height;
-}
-
-// 3. Animation Loop
-const animate = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    hearts.forEach(heart => {
-        // Move heart down
-        heart.y += heart.speed;
-        heart.x += heart.drift;
-
-        // Reset heart to top if it goes off screen
-        if (heart.y > canvas.height) {
-            heart.y = -heart.size;
-            heart.x = Math.random() * canvas.width;
-        }
-
-        // Draw the image
-        ctx.globalAlpha = heart.opacity;
-        ctx.drawImage(heartImage, heart.x, heart.y, heart.size, heart.size);
-    });
-
-    requestAnimationFrame(animate);
-};
-
-// Start when image is loaded
-heartImage.onload = () => {
-    animate();
-};
-8****
- */
-
-window.onload = function ()
