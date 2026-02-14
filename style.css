@@ -1,0 +1,74 @@
+:root {
+    --bg-color: #FDF5E6;
+    --text-color: #4A2C2A;
+    --accent-rose: #AB6B6B;
+    --soft-pink: #E2B4B4;
+    --green: #828E74;
+}
+
+.indie-flower-regular {
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+.navbar-brand.title{
+    font-family: "Indie Flower", cursive;
+    color: beige;
+    font-weight: 600;
+}
+
+#navMessage{
+    transition: 0.5s ease;
+}
+#navTitle{
+    transition: 0.5s ease;
+    pointer-events: none;
+}
+
+#header:hover #navMessage{
+    opacity: 0 !important;
+}
+
+#header:hover #navTitle{
+    opacity: 1 !important;
+}
+
+
+
+
+.navbar{
+    background-color: var(--accent-rose)!important;
+}
+
+
+body{
+    background-color: var(--soft-pink);
+}
+
+
+
+
+.letterButton{
+    transition: .5s ease-in-out;
+
+    border-radius: 10px;
+}
+
+
+.letterButton:hover{
+    transform: translateY(-1rem); /* 2rem is quite a big jump, 1rem is usually smoother */
+    box-shadow: 0px 20px 30px var(--text-color);
+}
+
+#videoContainer video {
+    width: 100%;
+    outline: 2px solid var(--accent-rose); /* Thin rustic border */
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background-color: #000; /* Keeps the edges clean if the video hasn't loaded */
+}
+
+
+
